@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/timberio/timber-ruby.git
-  revision: e0716558ece9ee1e787a6863afc85a0bf6a26db2
+  revision: 749604f5b86bc18f80429e856327fee571c9f7f5
   specs:
     timber (1.0.13)
       msgpack (~> 1.0)
