@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: ruby-rails-example-app_development
+  database: rails_example_dev
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
