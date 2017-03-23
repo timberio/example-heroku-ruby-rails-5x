@@ -83,4 +83,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Install the Timber.io logger, send logs to STDOUT
+  logger = Timber::Logger.new(STDOUT)
+  logger.level = config.log_level
+  config.logger =
 end
