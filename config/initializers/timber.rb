@@ -15,7 +15,8 @@ when "development", "test"
   logger.formatter = Timber::Logger::SimpleFormatter.new
   logger
 else
-  Timber::Logger.new(STDOUT)
+  log_device = Timber::LogDevices::HTTP.new(ENV['TIMBER_API_KEY'])
+Timber::Logger.new(log_device)
 end
 
 Timber::Frameworks::Rails.set_logger(logger)
