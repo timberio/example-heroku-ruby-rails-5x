@@ -16,7 +16,8 @@ when "development", "test"
   logger
 else
   log_device = Timber::LogDevices::HTTP.new(ENV['TIMBER_API_KEY'])
-Timber::Logger.new(log_device)
+  Timber::Logger.new(log_device)
 end
 
+logger.level = Rails.application.config.log_level
 Timber::Frameworks::Rails.set_logger(logger)
