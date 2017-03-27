@@ -87,5 +87,5 @@ Rails.application.configure do
   # Install the Timber.io logger, send logs to STDOUT
   logger = Timber::Logger.new(STDOUT)
   logger.level = config.log_level
-  config.logger =
+  config.logger = ActiveSupport::TaggedLogging.new(logger)
 end
