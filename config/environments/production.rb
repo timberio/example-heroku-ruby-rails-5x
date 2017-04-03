@@ -46,8 +46,19 @@ Rails.application.configure do
   # when problems arise.
   config.log_level = :debug
 
+  def session_data(request)
+    session_key = Rails.application.config.session_options[:key]
+    request
+      .cookie_jar
+      .signed_or_encrypted[session_key] || {}
+  end
+
+  session_id = lambda do |request|
+    session_data(request)["session_id"] || "no session"
+  end
+
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [ :host, :request_id, :remote_ip, session_id ]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -75,7 +86,7 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  if true || ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
