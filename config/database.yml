@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: ruby-rails-example-app_test
+  database: rails_example_dev_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: ruby-rails-example-app_production
-  username: ruby-rails-example-app
-  password: <%= ENV['RUBY-RAILS-EXAMPLE-APP_DATABASE_PASSWORD'] %>
+  database: rails_example_production
