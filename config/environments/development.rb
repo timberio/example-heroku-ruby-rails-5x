@@ -51,4 +51,9 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  logger = Timber::Logger.new(STDOUT)
+  logger.level = config.log_level
+  config.logger = ActiveSupport::TaggedLogging.new(logger)
+  config.timber.append_metadata = true
 end
