@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/timberio/timber-ruby.git
+  revision: f38c82039bec204860aa942be07077db7e71c07e
+  specs:
+    timber (2.1.0)
+      msgpack (~> 1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -84,6 +91,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    msgpack (1.1.0)
     multi_json (1.12.1)
     nio4r (2.0.0)
     nokogiri (1.7.0.1)
@@ -183,10 +191,11 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
+  timber!
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.14.3
+   1.15.0

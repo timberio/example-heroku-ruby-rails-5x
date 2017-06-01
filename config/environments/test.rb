@@ -39,4 +39,11 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Install the Timber.io logger but silence all logs (log to nil). We install the
+  # logger to ensure the Rails.logger object exposes the proper API.
+  logger = Timber::Logger.new(nil)
+  logger.level = config.log_level
+  config.logger = ActiveSupport::TaggedLogging.new(logger)
+
 end
